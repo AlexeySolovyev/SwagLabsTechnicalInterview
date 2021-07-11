@@ -17,10 +17,7 @@ public class LoginTest_002 extends BaseClass {
         loginPage.setPassword(password);
         loginPage.clickLoginButton();
         loginPage.checkErrorMessage();
-        Thread.sleep(1000);
         loginPage.closeErrorMessage();
-        Thread.sleep(1000);
         loginPage.checkHidingElement();
-        Thread.sleep(1000);
     }
 }

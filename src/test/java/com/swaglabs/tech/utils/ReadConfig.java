@@ -44,7 +44,7 @@ public class ReadConfig {
     }
 
     public String getPerformanceUser() {
-        return properties.getProperty("perfromanceUser");
+        return properties.getProperty("performanceGlitchUser");
     }
 
     public String getPassword() {

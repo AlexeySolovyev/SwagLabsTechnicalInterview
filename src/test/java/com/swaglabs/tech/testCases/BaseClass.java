@@ -22,7 +22,7 @@ public class BaseClass {
     public String standardUser = readConfig.getStandardUser();
     public String lockedUser = readConfig.getLockedUser();
     public String problemUser = readConfig.getProblemUser();
-    public String performanceUser = readConfig.getPerformanceUser();
+    public String performanceGlitchUser = readConfig.getPerformanceUser();
     public String password = readConfig.getPassword();
     public static WebDriver driver;
     public static Logger logger;
