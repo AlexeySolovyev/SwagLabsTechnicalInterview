@@ -27,23 +27,27 @@ public class ReadConfig {
         return properties.getProperty("chromePath");
     }
 
+    public String getFirefoxPath() {
+        return properties.getProperty("firefoxPath");
+    }
+
     public String getStandardUser() {
         return properties.getProperty("standardUser");
     }
 
     public String getLockedUser() {
-        return properties.getProperty("locked_out_user");
+        return properties.getProperty("lockedUser");
     }
 
     public String getProblemUser() {
-        return properties.getProperty("problem_user");
+        return properties.getProperty("problemUser");
     }
 
     public String getPerformanceUser() {
-        return properties.getProperty("performance_glitch_user");
+        return properties.getProperty("perfromanceUser");
     }
 
     public String getPassword() {
-        return properties.getProperty("secret_sauce");
+        return properties.getProperty("password");
     }
 }

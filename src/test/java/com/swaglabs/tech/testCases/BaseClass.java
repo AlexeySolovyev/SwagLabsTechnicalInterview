@@ -7,10 +7,11 @@ import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
-
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
@@ -26,7 +27,7 @@ public class BaseClass {
     public static WebDriver driver;
     public static Logger logger;
 
-    @Parameters
+    @Parameters("browser")
     @BeforeClass
     public void setup(String  browser) {
         logger = Logger.getLogger("SwagLabs");
@@ -34,6 +35,10 @@ public class BaseClass {
 
         if (browser.equals("chrome")) {
             System.setProperty("webdriver.chrome.driver", readConfig.getChromePath());
+            driver = new ChromeDriver();
+        }  else if (browser.equals("firefox")) {
+            System.setProperty("webdriver.gecko.driver", readConfig.getFirefoxPath());
+            driver = new FirefoxDriver();
         }
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
