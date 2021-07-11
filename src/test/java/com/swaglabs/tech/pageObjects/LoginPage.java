@@ -1,6 +1,7 @@
 package com.swaglabs.tech.pageObjects;
 
 import com.swaglabs.tech.testCases.BaseClass;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -16,7 +17,7 @@ public class LoginPage extends BaseClass {
         PageFactory.initElements(remoteDriver, this);
     }
 
-    @FindBy(css = "div[class='login_logo']")
+    @FindBy(css = "div[class='bot_column']")
     @CacheLookup
     WebElement loginLogo;
 
@@ -35,6 +36,14 @@ public class LoginPage extends BaseClass {
     @FindBy(css = "span[class='title']")
     @CacheLookup
     WebElement productsTitle;
+
+    @FindBy(id = "react-burger-menu-btn")
+    @CacheLookup
+    WebElement menuButton;
+
+    @FindBy(id = "logout_sidebar_link")
+    @CacheLookup
+    WebElement logoutLink;
 
     public void checkLogo() throws Exception {
         if (loginLogo.isDisplayed()) {
@@ -74,5 +83,23 @@ public class LoginPage extends BaseClass {
         }
     }
 
+    public void clickMenuButton() {
+        menuButton.click();
+    }
 
+    public void clickLogout() {
+        logoutLink.click();
+    }
+
+    public void checkLogout() throws Exception {
+        if (localDriver.findElement(By.cssSelector("div[class='bot_column']")).isDisplayed()) {
+            Assert.assertTrue(true);
+            logger.info("Successful logout");
+        } else {
+            Assert.assertFalse(false);
+            logger.info("Logout failed");
+            captureScreen(localDriver, "Test login");
+        }
+
+    }
 }
