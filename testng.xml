@@ -6,6 +6,7 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name = "com.swaglabs.tech.testCases.LoginTest_001"/>
+            <class name = "com.swaglabs.tech.testCases.LoginTest_002"/>
         </classes>
     </test>
 </suite>

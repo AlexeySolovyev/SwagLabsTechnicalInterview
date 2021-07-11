@@ -45,6 +45,14 @@ public class LoginPage extends BaseClass {
     @CacheLookup
     WebElement logoutLink;
 
+    @FindBy(css = "h3[data-test='error']")
+    @CacheLookup
+    WebElement errorMessage;
+
+    @FindBy(css = "button[class='error-button']")
+    @CacheLookup
+    WebElement closeErrorButton;
+
     public void checkLogo() throws Exception {
         if (loginLogo.isDisplayed()) {
             Assert.assertTrue(true);
@@ -59,7 +67,7 @@ public class LoginPage extends BaseClass {
     public void setUserName(String user) {
         userNameField.click();
         userNameField.clear();
-        userNameField.sendKeys(standardUser);
+        userNameField.sendKeys(user);
     }
 
     public void setPassword(String password) {
@@ -79,7 +87,7 @@ public class LoginPage extends BaseClass {
         } else {
             Assert.assertFalse(false);
             logger.info("Login failed");
-            captureScreen(localDriver, "Login Test");
+            captureScreen(localDriver, "Login Test with standard_user");
         }
     }
 
@@ -98,8 +106,32 @@ public class LoginPage extends BaseClass {
         } else {
             Assert.assertFalse(false);
             logger.info("Logout failed");
-            captureScreen(localDriver, "Test login");
+            captureScreen(localDriver, "Test logout with standard_user");
         }
+    }
 
+    public void checkErrorMessage() throws Exception {
+        if (errorMessage.isDisplayed()) {
+            Assert.assertTrue(true);
+            logger.info("Login error message is displayed");
+        } else {
+            Assert.assertFalse(false);
+            logger.info("Login error message is not displayed");
+            captureScreen(localDriver, "Test login with locked_out_user");
+        }
+    }
+
+    public void closeErrorMessage() {
+        closeErrorButton.click();
+    }
+
+    public void checkHidingElement() throws Exception {
+        if (localDriver.findElement(By.cssSelector("div[class='error-message-container']")).getText().isEmpty()) {
+            Assert.assertTrue(true);
+
+        } else {
+            Assert.assertFalse(false);
+            captureScreen(localDriver, "Test login with locked_out_user");
+        }
     }
 }

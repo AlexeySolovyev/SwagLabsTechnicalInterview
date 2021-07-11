@@ -2,10 +2,10 @@ package com.swaglabs.tech.testCases;
 
 import com.swaglabs.tech.pageObjects.LoginPage;
 import org.testng.annotations.Test;
-import java.util.concurrent.TimeUnit;
 
-// login and logout with standard_user
-public class LoginTest_001 extends BaseClass {
+// attempt to login with locked user
+
+public class LoginTest_002 extends BaseClass {
 
     @Test
     public void LoginTest() throws Exception {
@@ -13,13 +13,14 @@ public class LoginTest_001 extends BaseClass {
         LoginPage loginPage = new LoginPage(driver);
 
         loginPage.checkLogo();
-        loginPage.setUserName(standardUser);
+        loginPage.setUserName(lockedUser);
         loginPage.setPassword(password);
         loginPage.clickLoginButton();
-        loginPage.checkLogin();
-        loginPage.clickMenuButton();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        loginPage.clickLogout();
-        loginPage.checkLogout();
+        loginPage.checkErrorMessage();
+        Thread.sleep(1000);
+        loginPage.closeErrorMessage();
+        Thread.sleep(1000);
+        loginPage.checkHidingElement();
+        Thread.sleep(1000);
     }
 }
