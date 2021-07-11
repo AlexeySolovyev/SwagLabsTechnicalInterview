@@ -64,13 +64,13 @@ public class LoginPage extends BaseClass {
     }
 
     public void checkLogin() throws Exception {
-        if (productsTitle.getText().contains("Products")) {
+        if (productsTitle.isDisplayed()) {
             Assert.assertTrue(true);
-            logger.info("Successfully log in");
+            logger.info("Successful login");
         } else {
             Assert.assertFalse(false);
             logger.info("Login failed");
-            captureScreen(localDriver, "login Test");
+            captureScreen(localDriver, "Login Test");
         }
     }
 
