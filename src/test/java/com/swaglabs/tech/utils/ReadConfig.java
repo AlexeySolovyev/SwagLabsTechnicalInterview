@@ -50,4 +50,16 @@ public class ReadConfig {
     public String getPassword() {
         return properties.getProperty("password");
     }
+
+    public String getFirstUserName() {
+        return properties.getProperty("firstUserName");
+    }
+
+    public String getLastUserName() {
+        return properties.getProperty("lastUserName");
+    }
+
+    public String getZipCode() {
+        return properties.getProperty("zipCode");
+    }
 }

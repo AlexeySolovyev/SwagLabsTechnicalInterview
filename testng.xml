@@ -8,6 +8,7 @@
             <class name = "com.swaglabs.tech.testCases.LoginTest_001"/>
             <class name = "com.swaglabs.tech.testCases.LoginTest_002"/>
             <class name = "com.swaglabs.tech.testCases.LoginTest_003"/>
+            <class name = "com.swaglabs.tech.testCases.OrderItemTest_004"/>
         </classes>
     </test>
 </suite>

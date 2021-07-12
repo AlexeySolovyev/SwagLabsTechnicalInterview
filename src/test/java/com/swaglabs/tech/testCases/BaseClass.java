@@ -24,6 +24,9 @@ public class BaseClass {
     public String problemUser = readConfig.getProblemUser();
     public String performanceGlitchUser = readConfig.getPerformanceUser();
     public String password = readConfig.getPassword();
+    public String firstUserName = readConfig.getFirstUserName();
+    public String lastUserName = readConfig.getLastUserName();
+    public String zipCode = readConfig.getZipCode();
     public static WebDriver driver;
     public static Logger logger;
 

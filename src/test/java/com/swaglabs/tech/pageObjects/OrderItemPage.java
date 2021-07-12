@@ -33,10 +33,6 @@ public class OrderItemPage extends BaseClass {
     @CacheLookup
     WebElement loginButton;
 
-    @FindBy(css = "span[class='title']")
-    @CacheLookup
-    WebElement productsTitle;
-
     @FindBy(id = "item_4_title_link")
     @CacheLookup
     WebElement itemTitleLink;
@@ -52,6 +48,10 @@ public class OrderItemPage extends BaseClass {
     @FindBy(xpath = "//span[contains(text(),'1')]")
     @CacheLookup
     WebElement fullCartIcon;
+
+    @FindBy(css = "a[class='shopping_cart_link']")
+    @CacheLookup
+    WebElement cartIcon;
 
     @FindBy(id = "back-to-products")
     @CacheLookup
@@ -109,6 +109,7 @@ public class OrderItemPage extends BaseClass {
     @CacheLookup
     WebElement logoutLink;
 
+
     public void checkLogo() throws Exception {
         if (loginLogo.isDisplayed()) {
             Assert.assertTrue(true);
@@ -136,8 +137,8 @@ public class OrderItemPage extends BaseClass {
         loginButton.click();
     }
 
-    public void checkProductTitle() throws Exception {
-        if (productsTitle.isDisplayed()) {
+    public void checkProductsPage() throws Exception {
+        if (driver.findElement(By.xpath("//span[contains(text(),'Products')]")).isDisplayed()) {
             Assert.assertTrue(true);
             logger.info("Products page is displayed");
         } else {
@@ -151,7 +152,7 @@ public class OrderItemPage extends BaseClass {
         itemTitleLink.click();
     }
 
-    public void checkInventoryCard() throws Exception {
+    public void checkItemCard() throws Exception {
         if (singleItemTitle.isDisplayed()) {
             Assert.assertTrue(true);
             logger.info("Item card is displayed");
@@ -177,12 +178,12 @@ public class OrderItemPage extends BaseClass {
         }
     }
 
-    public void clickBackToProductButton() {
+    public void clickBackToProductsButton() {
         backToProductsButton.click();
     }
 
     public void clickOnCartIcon() {
-        fullCartIcon.click();
+        cartIcon.click();
     }
 
     public void checkCartPage() throws Exception {
@@ -206,7 +207,7 @@ public class OrderItemPage extends BaseClass {
         firstNameField.sendKeys(firstName);
     }
 
-    public void setLastName(String lastName) {
+    public void setLastUserName(String lastName) {
         lastNameField.click();
         lastNameField.clear();
         lastNameField.sendKeys(lastName);
@@ -271,14 +272,14 @@ public class OrderItemPage extends BaseClass {
         logoutLink.click();
     }
 
-    public void checkLogout() throws Exception {
-        if (localDriver.findElement(By.cssSelector("div[class='bot_column']")).isDisplayed()) {
+    public void checkLoginButton() throws Exception {
+        if (driver.findElement(By.id("login-button")).isDisplayed()) {
             Assert.assertTrue(true);
-            logger.info("Successful logout");
+            logger.info("Logout has been executed");
         } else {
             Assert.assertFalse(false);
-            logger.info("Logout failed");
-            captureScreen(localDriver, "Test logout with standard_user");
+            logger.info("Logout has not been performed");
+            captureScreen(driver, "Order item test");
         }
     }
 }
