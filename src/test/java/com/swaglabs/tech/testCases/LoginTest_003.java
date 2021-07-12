@@ -20,7 +20,6 @@ public class LoginTest_003 extends BaseClass {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         loginPage.checkLogin();
         loginPage.clickMenuButton();
-        //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         loginPage.clickLogout();
         loginPage.checkLogout();
     }
