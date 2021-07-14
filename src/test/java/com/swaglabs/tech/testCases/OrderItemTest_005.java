@@ -3,9 +3,9 @@ package com.swaglabs.tech.testCases;
 import com.swaglabs.tech.pageObjects.OrderItemPage;
 import org.testng.annotations.Test;
 
-// Order an item with standard_user
+// Order and item with performanceGlitchUser
 
-public class OrderItemTest_004 extends BaseClass {
+public class OrderItemTest_005 extends BaseClass {
 
     @Test
     public void orderItemTest() throws Exception {
@@ -13,12 +13,11 @@ public class OrderItemTest_004 extends BaseClass {
         OrderItemPage orderPage = new OrderItemPage(driver);
 
         orderPage.checkLogo();
-        orderPage.setUserName(standardUser);
+        orderPage.setUserName(performanceGlitchUser);
         orderPage.setPassword(password);
         orderPage.clickLoginButton();
         orderPage.checkProductsPage();
         orderPage.openItemCard();
-        orderPage.checkItemCard();
         orderPage.clickAddToCartButton();
         orderPage.checkCartIcon();
         orderPage.clickBackToProductsButton();
