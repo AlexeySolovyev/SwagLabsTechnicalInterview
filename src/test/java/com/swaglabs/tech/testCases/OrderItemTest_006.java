@@ -4,6 +4,7 @@ import com.swaglabs.tech.pageObjects.OrderItemPage;
 import org.testng.annotations.Test;
 
 // Order and item with problem_user
+// TODO: 7/13/21 Implement 2 assertions: item card page, troubles with form filling
 
 public class OrderItemTest_006 extends BaseClass {
 
