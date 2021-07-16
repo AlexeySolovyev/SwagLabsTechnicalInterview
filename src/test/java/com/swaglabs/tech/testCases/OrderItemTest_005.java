@@ -18,8 +18,8 @@ public class OrderItemTest_005 extends BaseClass {
         orderPage.clickLoginButton();
         orderPage.checkProductsPage();
         orderPage.openItemCard();
-        orderPage.clickAddToCartButton();
-        orderPage.checkCartIcon();
+        orderPage.clickAddToCartButtonBackpack();
+        orderPage.checkOneCartIcon();
         orderPage.clickBackToProductsButton();
         orderPage.checkProductsPage();
         orderPage.clickOnCartIcon();

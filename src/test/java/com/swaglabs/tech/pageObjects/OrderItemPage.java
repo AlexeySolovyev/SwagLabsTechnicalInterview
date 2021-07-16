@@ -43,11 +43,35 @@ public class OrderItemPage extends BaseClass {
 
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
     @CacheLookup
-    WebElement addToCartButton;
+    WebElement addToCartButtonBackpack;
+
+    @FindBy(id = "add-to-cart-sauce-labs-bolt-t-shirt")
+    @CacheLookup
+    WebElement addToCartButtonBoltTshirt;
+
+    @FindBy(id = "add-to-cart-sauce-labs-onesie")
+    @CacheLookup
+    WebElement addToCartButtonBackpackOnesie;
+
+    @FindBy(id = "add-to-cart-sauce-labs-bike-light")
+    @CacheLookup
+    WebElement addToCartButtonBikeLight;
+
+    @FindBy(id = "add-to-cart-sauce-labs-fleece-jacket")
+    @CacheLookup
+    WebElement addToCartButtonJacket;
+
+    @FindBy(id = "add-to-cart-test.allthethings()-t-shirt-(red)")
+    @CacheLookup
+    WebElement addToCartButtonRedTshort;
 
     @FindBy(xpath = "//span[contains(text(),'1')]")
     @CacheLookup
-    WebElement fullCartIcon;
+    WebElement oneCartIcon;
+
+    @FindBy(xpath = "//span[contains(text(),'6')]")
+    @CacheLookup
+    WebElement sixCartIcon;
 
     @FindBy(css = "a[class='shopping_cart_link']")
     @CacheLookup
@@ -163,12 +187,43 @@ public class OrderItemPage extends BaseClass {
         }
     }
 
-    public void clickAddToCartButton() {
-        addToCartButton.click();
+    public void clickAddToCartButtonBackpack() {
+        addToCartButtonBackpack.click();
     }
 
-    public void checkCartIcon() throws Exception {
-        if (fullCartIcon.isDisplayed()) {
+    public void clickAddToCartButtonBoltTshort() {
+        addToCartButtonBoltTshirt.click();
+    }
+
+    public void clickAddToCartButtonOnesie() {
+        addToCartButtonBackpackOnesie.click();
+    }
+
+    public void clickAddToCartButtonBickelight() {
+        addToCartButtonBikeLight.click();
+    }
+
+    public void clickAddToCartButtonJacket() {
+        addToCartButtonJacket.click();
+    }
+
+    public void clickAddToCartButtonRedTshirt() {
+        addToCartButtonRedTshort.click();
+    }
+
+    public void checkOneCartIcon() throws Exception {
+        if (oneCartIcon.isDisplayed()) {
+            Assert.assertTrue(true);
+            logger.info("Cart with item is displayed");
+        } else {
+            Assert.assertFalse(false);
+            logger.info("Can't see an item in the cart");
+            captureScreen(driver, "Order item test");
+        }
+    }
+
+    public void checkSixCartIcon() throws Exception {
+        if (sixCartIcon.isDisplayed()) {
             Assert.assertTrue(true);
             logger.info("Cart with item is displayed");
         } else {

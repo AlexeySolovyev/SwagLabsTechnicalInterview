@@ -3,9 +3,9 @@ package com.swaglabs.tech.testCases;
 import com.swaglabs.tech.pageObjects.OrderItemPage;
 import org.testng.annotations.Test;
 
-// Order an item with standard_user
+// Order all items by standard_user
 
-public class OrderItemTest_004 extends BaseClass {
+public class OrderItemTest_007 extends BaseClass {
 
     @Test
     public void orderItemTest() throws Exception {
@@ -17,12 +17,13 @@ public class OrderItemTest_004 extends BaseClass {
         orderPage.setPassword(password);
         orderPage.clickLoginButton();
         orderPage.checkProductsPage();
-        orderPage.openItemCard();
-        orderPage.checkItemCard();
         orderPage.clickAddToCartButtonBackpack();
-        orderPage.checkOneCartIcon();
-        orderPage.clickBackToProductsButton();
-        orderPage.checkProductsPage();
+        orderPage.clickAddToCartButtonBoltTshort();
+        orderPage.clickAddToCartButtonOnesie();
+        orderPage.clickAddToCartButtonBickelight();
+        orderPage.clickAddToCartButtonJacket();
+        orderPage.clickAddToCartButtonRedTshirt();
+        orderPage.checkSixCartIcon();
         orderPage.clickOnCartIcon();
         orderPage.checkCartPage();
         orderPage.clickCheckoutButton();
