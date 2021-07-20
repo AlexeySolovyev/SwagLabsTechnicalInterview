@@ -10,8 +10,9 @@
             <class name = "com.swaglabs.tech.testCases.LoginTest_003"/>
             <class name = "com.swaglabs.tech.testCases.OrderItemTest_004"/>
             <class name = "com.swaglabs.tech.testCases.OrderItemTest_005"/>
-            <class name = "com.swaglabs.tech.testCases.OrderItemTest_006"/> -->
-            <class name = "com.swaglabs.tech.testCases.OrderItemTest_007"/>
+            <class name = "com.swaglabs.tech.testCases.OrderItemTest_006"/>
+            <class name = "com.swaglabs.tech.testCases.OrderItemTest_007"/> -->
+            <class name = "com.swaglabs.tech.testCases.OrderCancelTest_008"/>
         </classes>
     </test>
 </suite>

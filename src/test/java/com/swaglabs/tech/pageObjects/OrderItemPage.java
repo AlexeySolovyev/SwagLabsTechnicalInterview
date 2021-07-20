@@ -35,7 +35,7 @@ public class OrderItemPage extends BaseClass {
 
     @FindBy(id = "item_4_title_link")
     @CacheLookup
-    WebElement itemTitleLink;
+    WebElement backpackTitleLink;
 
     @FindBy(css = "div[class='inventory_details_name large_size']")
     @CacheLookup
@@ -44,6 +44,10 @@ public class OrderItemPage extends BaseClass {
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
     @CacheLookup
     WebElement addToCartButtonBackpack;
+
+    @FindBy(id = "remove-sauce-labs-backpack")
+    @CacheLookup
+    WebElement removeFromCartButtonBackpack;
 
     @FindBy(id = "add-to-cart-sauce-labs-bolt-t-shirt")
     @CacheLookup
@@ -64,6 +68,10 @@ public class OrderItemPage extends BaseClass {
     @FindBy(id = "add-to-cart-test.allthethings()-t-shirt-(red)")
     @CacheLookup
     WebElement addToCartButtonRedTshort;
+
+    @FindBy(css = "a[class='shopping_cart_link']")
+    @CacheLookup
+    WebElement emptyCartIcon;
 
     @FindBy(xpath = "//span[contains(text(),'1')]")
     @CacheLookup
@@ -172,8 +180,8 @@ public class OrderItemPage extends BaseClass {
         }
     }
 
-    public void openItemCard() {
-        itemTitleLink.click();
+    public void openBackpackCard() {
+        backpackTitleLink.click();
     }
 
     public void checkItemCard() throws Exception {
@@ -189,6 +197,10 @@ public class OrderItemPage extends BaseClass {
 
     public void clickAddToCartButtonBackpack() {
         addToCartButtonBackpack.click();
+    }
+
+    public void clickRemoveFromCartButtonBackpack() {
+        removeFromCartButtonBackpack.click();
     }
 
     public void clickAddToCartButtonBoltTshort() {
@@ -219,6 +231,17 @@ public class OrderItemPage extends BaseClass {
             Assert.assertFalse(false);
             logger.info("Can't see an item in the cart");
             captureScreen(driver, "Order item test");
+        }
+    }
+
+    public void checkEmptyCartIcon() throws Exception {
+        if (emptyCartIcon.isDisplayed()) {
+            Assert.assertTrue(true);
+            logger.info("Empty cart is displayed");
+        } else {
+            Assert.assertFalse(false);
+            logger.info("Cart icon is not empty");
+            captureScreen(driver, "Cancel order test");
         }
     }
 

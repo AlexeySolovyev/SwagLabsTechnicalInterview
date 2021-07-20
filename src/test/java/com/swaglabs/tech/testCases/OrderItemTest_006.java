@@ -18,7 +18,7 @@ public class OrderItemTest_006 extends BaseClass {
         orderPage.setPassword(password);
         orderPage.clickLoginButton();
         orderPage.checkProductsPage();
-        orderPage.openItemCard();
+        orderPage.openBackpackCard();
         orderPage.checkItemCard();
         orderPage.clickAddToCartButtonBackpack();
         orderPage.checkOneCartIcon();
